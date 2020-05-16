@@ -1,16 +1,16 @@
+# Stdlib imports
 import json
 import torch
 from torch import optim
-from torchvision import datasets, transforms, models
+from torchvision import (
+    datasets,
+    transforms,
+    models
+)
 from PIL import Image
 
-
-densenet = models.densenet121(pretrained=True)
-vgg = models.vgg13(pretrained=True)
-alexnet = models.alexnet(pretrained=True)
-
-arch_model = {'densenet': densenet, 'vgg': vgg, 'alexnet': alexnet}
-arch_input = {'densenet': 1024, 'vgg': 25088, 'alexnet': 9216}
+# Local imports
+from models import arch_model
 
 
 def load_checkpoint(checkpoint_path):
