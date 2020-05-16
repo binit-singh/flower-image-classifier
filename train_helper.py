@@ -1,9 +1,6 @@
-import json
 import torch
 from torch import nn
-from torch import optim
 from torchvision import datasets, transforms, models
-from PIL import Image
 
 densenet = models.densenet121(pretrained=True)
 vgg = models.vgg13(pretrained=True)
@@ -126,27 +123,6 @@ def get_model(arch, hidden_input, processor_type):
     model.to(device)
 
     return model
-
-
-def label_mapping(file_name):
-    """
-    It will create a mapping from category label to category name.
-
-    Args:
-        file_name (str): Filename of category to name.
-
-    Returns:
-        cat_to_name (dict)
-        {
-            '21': 'fire lily',
-            '3': 'canterbury bells',
-            '45': 'bolero deep blue'
-        }
-    """
-    with open(file_name, 'r') as f:
-        cat_to_name = json.load(f)
-
-    return cat_to_name
 
 
 def save_checkpoint(model, optimizer, dataset, epochs, arch, learning_rate, checkpoint_path):
