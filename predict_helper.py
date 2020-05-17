@@ -3,9 +3,7 @@ import json
 import torch
 from torch import optim
 from torchvision import (
-    datasets,
     transforms,
-    models
 )
 from PIL import Image
 
