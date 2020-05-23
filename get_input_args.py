@@ -30,7 +30,7 @@ def get_train_args():
     parser.add_argument(
         '--save_dir',
         type=str,
-        default='checkpoint/checkpoint.pth',
+        default='checkpoint.pth',
         help='Data directory to Save checkpoint.'
     )
     parser.add_argument(

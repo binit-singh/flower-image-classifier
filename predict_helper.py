@@ -74,3 +74,21 @@ def label_mapping(file_name):
         cat_to_name = json.load(f)
 
     return cat_to_name
+
+
+def get_device(user_request):
+    """
+    It will return processor type i.e GPU/CPU depending upon user's request and availability.
+
+    Args:
+        user_request (str): gpu/cpu
+
+    Returns:
+        cuda device
+    """
+    if user_request == 'gpu' and torch.cuda.is_available():
+        device = 'cuda'
+    else:
+        device = 'cpu'
+
+    return torch.device(device)
